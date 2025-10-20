@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject CapsuleStand;
     [SerializeField] GameObject CapsuleCrouch;
 
+    [SerializeField] BoxCollider attackCollider;
+    [SerializeField] BoxCollider attackColliderCrouch;
+
     private bool isGrounded = true;
     private bool isCroached = false;
 
@@ -41,6 +44,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isCroached)
+        {
+            //Activar animacion ataque standing 
+        } 
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && isCroached)
+        {
+            //Activar animacion ataque crouch
+        }
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
             isCroached = true;
@@ -68,5 +80,25 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+
+    void ActivateAttackColliderStanding()
+    {
+        attackCollider.enabled = true;
+    }
+
+    void DeactivateAttackColliderStanding()
+    {
+        attackCollider.enabled = false;
+    }
+
+    void ActivateAttackColliderCrouch()
+    {
+        attackColliderCrouch.enabled = true;
+    }
+
+    void DeactivateAttackColliderCrouch()
+    {
+        attackColliderCrouch.enabled = false;
     }
 }
