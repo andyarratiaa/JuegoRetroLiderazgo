@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -22,6 +23,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isCroached)
+        {
+            //Activar animacion ataque standing (cambiar corutina a animation event)
+            StartCoroutine(AttackStanding());
+        }
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && isCroached)
+        {
+            //Activar animacion ataque crouch (cambiar corutina a animation event)
+            StartCoroutine(AttackCrouching());
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -44,27 +59,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isCroached)
-        {
-            //Activar animacion ataque standing 
-        } 
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && isCroached)
-        {
-            //Activar animacion ataque crouch
-        }
+        
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
             isCroached = true;
             CapsuleCollisionStand.enabled = false;
             CapsuleStand.SetActive(false);
-            
+
             CapsuleCollisionCrouch.enabled = true;
             CapsuleCrouch.SetActive(true);
         }
 
         else
-        {   
+        {
             isCroached = false;
             CapsuleCollisionCrouch.enabled = false;
             CapsuleCrouch.SetActive(false);
@@ -100,5 +108,19 @@ public class PlayerController : MonoBehaviour
     void DeactivateAttackColliderCrouch()
     {
         attackColliderCrouch.enabled = false;
+    }
+
+    IEnumerator AttackStanding()
+    {
+        ActivateAttackColliderStanding();
+        yield return new WaitForSeconds(0.5f);
+        DeactivateAttackColliderStanding();
+    }
+
+    IEnumerator AttackCrouching()
+    {
+        ActivateAttackColliderCrouch();
+        yield return new WaitForSeconds(0.5f);
+        DeactivateAttackColliderCrouch();
     }
 }

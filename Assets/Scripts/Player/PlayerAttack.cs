@@ -20,7 +20,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            //other.gameObject.GetComponent<EnemtHealth>().TakeDamage(attackDamage);
+            Debug.Log("Hit Registered");
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
     }
 }

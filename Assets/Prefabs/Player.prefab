@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4232687232906053504}
   - component: {fileID: 7744497561253416806}
   m_Layer: 0
-  m_Name: Capsule (1)
+  m_Name: CrouchMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5220853248594849596
 Transform:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6004161374671098541
 Transform:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -352,8 +352,8 @@ MonoBehaviour:
   CapsuleCollisionCrouch: {fileID: 6894813835710730304}
   CapsuleStand: {fileID: 6783981473056046358}
   CapsuleCrouch: {fileID: 302827931336991226}
-  attackCollider: {fileID: 0}
-  attackColliderCrouch: {fileID: 0}
+  attackCollider: {fileID: 2987259500704495800}
+  attackColliderCrouch: {fileID: 2122834464893964766}
 --- !u!114 &7831197806068761593
 MonoBehaviour:
   m_ObjectHideFlags: 0
