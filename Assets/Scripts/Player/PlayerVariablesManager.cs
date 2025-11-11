@@ -26,8 +26,10 @@ public class PlayerVariablesManager : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         playerHealh -= damageTaken;
+        Debug.Log("Player health:" + playerHealh);
         if (playerHealh <= 0) 
         {
+            
             isPlayerDead = true;
             //morir
         }
