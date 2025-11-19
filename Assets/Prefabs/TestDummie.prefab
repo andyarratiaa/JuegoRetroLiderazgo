@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7009129220500575643}
   - component: {fileID: 1867581460175766136}
   - component: {fileID: 8255054840918324134}
+  - component: {fileID: 3235283303341354459}
   m_Layer: 0
   m_Name: TestDummie
   m_TagString: Enemy
@@ -101,6 +102,8 @@ MonoBehaviour:
   enemyHealth: 10
   enemySpeed: 1
   enemyDamage: 5
+  player: {fileID: 0}
+  player1: {fileID: 0}
 --- !u!114 &8255054840918324134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +117,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 5
+--- !u!65 &3235283303341354459
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4359517316554592845}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7610394, y: 1, z: 1}
+  m_Center: {x: -0.5633728, y: 0, z: 0}
 --- !u!1 &6783981473056046358
 GameObject:
   m_ObjectHideFlags: 0

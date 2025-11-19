@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
             //Activar animacion ataque crouch (cambiar corutina a animation event)
             StartCoroutine(AttackCrouching());
         }
+
+
     }
 
     // Update is called once per frame
@@ -45,17 +47,32 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.A))
             {
                 transform.position = new Vector3(transform.position.x - PlayerSpeed, transform.position.y, transform.position.z);
+                transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
             }
 
             if (Input.GetKey(KeyCode.D))
             {
                 transform.position = new Vector3(transform.position.x + PlayerSpeed, transform.position.y, transform.position.z);
+                transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             }
 
             if (Input.GetKey(KeyCode.Space) && isGrounded)
             {
                 isGrounded = false;
                 PlayerRigidbody.AddForce(0, 1 * JumpForce, 0, ForceMode.Impulse);
+            }
+        } 
+
+        else
+        {
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             }
         }
 
