@@ -5,6 +5,7 @@ public class FlyingEnemy : EnemyBase
     public Transform[] patrollWaypoints;
     int targetPoint;
     public GameObject projectile;
+    [SerializeField] float shootingCooldown;
 
     private float timer;
 
@@ -22,7 +23,7 @@ public class FlyingEnemy : EnemyBase
         timer += Time.deltaTime;
         if (Mathf.Abs(Vector3.Distance(transform.position, player.gameObject.transform.position)) < 10f)
         {
-            if (timer > 2.5f) 
+            if (timer > shootingCooldown) 
             {
                 timer = 0f;
                 Shoot();
