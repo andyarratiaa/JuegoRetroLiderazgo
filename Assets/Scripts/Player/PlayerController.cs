@@ -5,14 +5,18 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float PlayerSpeed;
     [SerializeField] float JumpForce;
-    [SerializeField] Rigidbody PlayerRigidbody;
-    [SerializeField] CapsuleCollider CapsuleCollisionStand;
-    [SerializeField] CapsuleCollider CapsuleCollisionCrouch;
+    [SerializeField] Rigidbody2D PlayerRigidbody;
+    [SerializeField] CapsuleCollider2D CapsuleCollisionStand;
+    [SerializeField] CapsuleCollider2D CapsuleCollisionCrouch;
     [SerializeField] GameObject CapsuleStand;
     [SerializeField] GameObject CapsuleCrouch;
 
-    [SerializeField] BoxCollider attackCollider;
-    [SerializeField] BoxCollider attackColliderCrouch;
+    [SerializeField] BoxCollider2D attackCollider;
+    [SerializeField] BoxCollider2D attackColliderCrouch;
+
+    
+
+
 
     private bool isGrounded = true;
     private bool isCroached = false;
@@ -42,6 +46,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //isGrounded = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.05f, GoundObjets);
+
         if (!isCroached)
         {
             if (Input.GetKey(KeyCode.A))
@@ -59,7 +65,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) && isGrounded)
             {
                 isGrounded = false;
-                PlayerRigidbody.AddForce(0, 1 * JumpForce, 0, ForceMode.Impulse);
+                PlayerRigidbody.AddForce(transform.up * JumpForce);
             }
         } 
 
@@ -99,7 +105,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
