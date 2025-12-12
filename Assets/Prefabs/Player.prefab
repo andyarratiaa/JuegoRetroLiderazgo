@@ -139,7 +139,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122834464893964766}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -162,7 +162,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -231,7 +231,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2987259500704495800}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -258,7 +258,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.42510426, y: 0.51503026}
+  m_Offset: {x: 0.2791363, y: 0.34252268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -268,7 +268,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8502085, y: 0.656646}
+  m_Size: {x: 1.5582726, y: 1.0016612}
   m_EdgeRadius: 0
 --- !u!1 &4359517316554592845
 GameObject:
@@ -331,8 +331,8 @@ MonoBehaviour:
   CapsuleCollisionCrouch: {fileID: 7179204870262743562}
   CapsuleStand: {fileID: 5379648672060127448}
   CapsuleCrouch: {fileID: 9136924115798020259}
-  attackCollider: {fileID: 0}
-  attackColliderCrouch: {fileID: 0}
+  attackCollider: {fileID: 4546020703324122274}
+  attackColliderCrouch: {fileID: 6654974628189712507}
 --- !u!114 &7831197806068761593
 MonoBehaviour:
   m_ObjectHideFlags: 0
