@@ -9,9 +9,12 @@ public class NormalEnemy : EnemyBase
     [SerializeField] Transform collisionDetector;
     public LayerMask groundLayer;
 
-    RaycastHit hit; 
+    RaycastHit hit;
+
+    GameObject player;
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
     }
     // Update is called once per frame
@@ -52,7 +55,7 @@ public class NormalEnemy : EnemyBase
         if(other.CompareTag("Player"))
         {
             //Iniciar Ataque
-            Attack(player);
+            Attack(player.GetComponent<PlayerVariablesManager>());
         }
     }
 }

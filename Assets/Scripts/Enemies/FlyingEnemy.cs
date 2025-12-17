@@ -7,14 +7,16 @@ public class FlyingEnemy : EnemyBase
     public GameObject projectile;
     [SerializeField] float shootingCooldown;
 
+    GameObject player;
+
     private float timer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         targetPoint = 0;
+        player = GameObject.FindGameObjectWithTag("Player");
 
-        
     }
 
     // Update is called once per frame
