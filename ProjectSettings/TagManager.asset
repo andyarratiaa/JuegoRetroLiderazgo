@@ -40,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: 1Sky
+    uniqueID: 432365977
+    locked: 0
+  - name: 2Cloud
+    uniqueID: 1205117975
+    locked: 0
+  - name: 3Background
+    uniqueID: 3470398989
+    locked: 0
+  - name: 4Foreground
+    uniqueID: 1193019307
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
