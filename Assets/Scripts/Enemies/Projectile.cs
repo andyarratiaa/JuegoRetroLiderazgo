@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] int projectileDamage;
     [SerializeField] float projectileSpread;
     private GameObject player;
+    [SerializeField] GameObject smallEnemy;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +29,10 @@ public class Projectile : MonoBehaviour
     {
         if (collision.CompareTag("Ground"))
         {
+            if(Random.Range(0, 4) == 3)
+            {
+                Instantiate(smallEnemy, new Vector3(transform.position.x, transform.position.y +1f, transform.position.z), Quaternion.identity);
+            }
             Destroy(gameObject);
         }
 

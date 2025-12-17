@@ -59,4 +59,14 @@ public class SmallEnemy : EnemyBase
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Player"))
+        {
+            player.GetComponent<PlayerVariablesManager>().TakeDamage(enemyDamage);
+            Debug.Log("Player hit");
+        }
+    }
 }

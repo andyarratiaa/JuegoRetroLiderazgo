@@ -142,6 +142,7 @@ MonoBehaviour:
   projectileSpeed: 4
   projectileDamage: 1
   projectileSpread: 2
+  smallEnemy: {fileID: 4359517316554592845, guid: 78a66236b4ce6984f9197bce82c401c9, type: 3}
 --- !u!50 &-3749907205461104780
 Rigidbody2D:
   serializedVersion: 5

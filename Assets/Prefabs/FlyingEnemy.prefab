@@ -136,12 +136,11 @@ MonoBehaviour:
   enemyHealth: 10
   enemySpeed: 0.05
   enemyDamage: 1
-  player: {fileID: 0}
-  player1: {fileID: 0}
   patrollWaypoints:
   - {fileID: 0}
   - {fileID: 0}
   projectile: {fileID: 7304831505454715551, guid: 1631429556491f140bc8f653ef79582c, type: 3}
+  shootingCooldown: 2.5
 --- !u!58 &699403362493339346
 CircleCollider2D:
   m_ObjectHideFlags: 0
