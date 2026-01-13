@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BoxCollider2D attackCollider;
     [SerializeField] BoxCollider2D attackColliderCrouch;
 
-    
+
 
 
 
@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (GetComponent<PlayerVariablesManager>().isPlayerDead)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isCroached)
         {
             //Activar animacion ataque standing (cambiar corutina a animation event)
@@ -47,6 +52,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //isGrounded = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.05f, GoundObjets);
+        if (GetComponent<PlayerVariablesManager>().isPlayerDead)
+        {
+            return;
+        }
 
         if (!isCroached)
         {
@@ -67,7 +76,7 @@ public class PlayerController : MonoBehaviour
                 isGrounded = false;
                 PlayerRigidbody.AddForce(transform.up * JumpForce);
             }
-        } 
+        }
 
         else
         {
@@ -82,7 +91,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        
+
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -111,6 +120,12 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+
+    public void OnDead()
+    {
+        CapsuleCollisionStand.enabled = false;
+        CapsuleCollisionCrouch.enabled = false;
     }
 
     void ActivateAttackColliderStanding()

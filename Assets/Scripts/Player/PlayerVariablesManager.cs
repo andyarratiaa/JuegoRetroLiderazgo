@@ -6,7 +6,7 @@ public class PlayerVariablesManager : MonoBehaviour
     [SerializeField] int playerHealh;
 
     [SerializeField] int coins;
-    bool isPlayerDead = false;
+    public bool isPlayerDead = false;
 
     void Start()
     {
@@ -31,6 +31,9 @@ public class PlayerVariablesManager : MonoBehaviour
         {
             
             isPlayerDead = true;
+            GetComponent<PlayerController>().OnDead();
+            GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
             //morir
         }
     }
