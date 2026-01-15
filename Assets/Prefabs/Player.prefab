@@ -347,6 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealh: 5
   coins: 0
+  isPlayerDead: 0
 --- !u!50 &7518013492440988350
 Rigidbody2D:
   serializedVersion: 5
@@ -458,6 +459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 783941735469235461}
   - component: {fileID: 6039512359359387559}
+  - component: {fileID: 2555382316379474988}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -475,7 +477,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 3, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6099186906330317144}
@@ -535,6 +537,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2555382316379474988
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379648672060127448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45957e9fcfad7294d9de5f4c94347a95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6783981473056046358
 GameObject:
   m_ObjectHideFlags: 0
