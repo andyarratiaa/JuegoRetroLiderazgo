@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Dino_se\xF1ora-Bend_0": 7031411761112459019
+      "Dino_se\xF1ora-Bend_1": 6383907625390893136
+      "Dino_se\xF1ora-Bend_2": 4787027189545474145
+      "Dino_se\xF1ora-Bend_3": 6173716756805268326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
