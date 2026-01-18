@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -8,10 +9,16 @@ public class Projectile : MonoBehaviour
     [SerializeField] float projectileSpread;
     private GameObject player;
     [SerializeField] GameObject smallEnemy;
+    [SerializeField] Sprite brokenEgg;
+    SpriteRenderer spriteRenderer;
+
+    bool fade = false;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -22,7 +29,13 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(fade)
+        {
+        Color c = spriteRenderer.color;
+        c.a = Mathf.Lerp(c.a, 0f, 3f * Time.deltaTime);
+        spriteRenderer.color = c;
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,9 +44,11 @@ public class Projectile : MonoBehaviour
         {
             if(Random.Range(0, 4) == 3)
             {
-                Instantiate(smallEnemy, new Vector3(transform.position.x, transform.position.y +1f, transform.position.z), Quaternion.identity);
+                Instantiate(smallEnemy, new Vector3(transform.position.x, transform.position.y +0.65f, transform.position.z), Quaternion.identity);
             }
-            Destroy(gameObject);
+            rb.linearVelocity = new Vector2 (0f, 0f);
+            fade = true;
+            StartCoroutine(HitGround());
         }
 
         if (collision.CompareTag("Player"))
@@ -42,5 +57,12 @@ public class Projectile : MonoBehaviour
             Debug.Log("Player hit");
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator HitGround()
+    {
+        spriteRenderer.sprite = brokenEgg;
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }

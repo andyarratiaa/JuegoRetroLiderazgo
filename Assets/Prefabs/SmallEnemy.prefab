@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eee147c9e7195f4584c6f60fde8e0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 5
+  enemyHealth: 1
 --- !u!50 &583547614366945086
 Rigidbody2D:
   serializedVersion: 5
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ca64f2878272a4494641bd8aafc920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 5
+  enemyHealth: 1
   enemySpeed: 3.5
   enemyDamage: 1
   groundlayers:

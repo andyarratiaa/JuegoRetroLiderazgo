@@ -36,6 +36,13 @@ public class FlyingEnemy : EnemyBase
 
     private void FixedUpdate()
     {
+        if (transform.position.x < patrollWaypoints[targetPoint].position.x) 
+        {
+            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+        } else
+        {
+            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+        }
         if (transform.position == patrollWaypoints[targetPoint].position)
         {
             increaseTargetInt();

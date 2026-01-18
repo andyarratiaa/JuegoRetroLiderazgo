@@ -31,7 +31,7 @@ public class SmallEnemy : EnemyBase
     void Update()
     {
         hitFall = Physics2D.Raycast(groundCheck.position, -transform.up, 0.6f, groundlayers);
-        hitWall = Physics2D.Raycast(groundCheck.position, transform.right, 0.2f, groundlayers);
+        hitWall = Physics2D.Raycast(groundCheck.position, transform.right, 0.3f, groundlayers);
     }
 
     private void FixedUpdate()

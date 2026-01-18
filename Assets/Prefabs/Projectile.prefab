@@ -143,6 +143,7 @@ MonoBehaviour:
   projectileDamage: 1
   projectileSpread: 2
   smallEnemy: {fileID: 4359517316554592845, guid: 78a66236b4ce6984f9197bce82c401c9, type: 3}
+  brokenEgg: {fileID: 519550167376354274, guid: c1fe99d8d971f3143a2998da4c9fa253, type: 3}
 --- !u!50 &-3749907205461104780
 Rigidbody2D:
   serializedVersion: 5
