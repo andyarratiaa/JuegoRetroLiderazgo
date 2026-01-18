@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Dino_se\xF1ora-walkpte_0": -8008749113333453044
+      "Dino_se\xF1ora-walkpte_1": 3118410343128071872
+      "Dino_se\xF1ora-walkpte_2": -80100992055952875
+      "Dino_se\xF1ora-walkpte_3": 6428439737139446246
+      "Dino_se\xF1ora-walkpte_4": 9112271976015819309
+      "Dino_se\xF1ora-walkpte_5": 6300530564358548916
+      "Dino_se\xF1ora-walkpte_6": -2272220125560036230
+      "Dino_se\xF1ora-walkpte_7": 5129449710578190025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

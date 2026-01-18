@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dino_Hippie-walk_64x64_0: 4717392887914631551
+      Dino_Hippie-walk_64x64_1: 8833867459137030936
+      Dino_Hippie-walk_64x64_2: -362230046583889059
+      Dino_Hippie-walk_64x64_3: -962901665378511894
+      Dino_Hippie-walk_64x64_4: 7795087899954478652
+      Dino_Hippie-walk_64x64_5: 760265237923241159
+      Dino_Hippie-walk_64x64_6: 7084507944474649765
+      Dino_Hippie-walk_64x64_7: -5859695895290626863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

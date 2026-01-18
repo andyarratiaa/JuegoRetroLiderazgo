@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      estocada_128x64_0: -5182099669016572225
+      estocada_128x64_1: -1619958061183508768
+      estocada_128x64_2: 7577114979719498759
+      estocada_128x64_3: -2908346967925698869
+      estocada_128x64_4: -1494868102094753949
+      estocada_128x64_5: 7379450880950450125
+      estocada_128x64_6: -2081213801132481213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

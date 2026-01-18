@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Proyectil_Dino_Hippie_59x32_0: 3826489058612661318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

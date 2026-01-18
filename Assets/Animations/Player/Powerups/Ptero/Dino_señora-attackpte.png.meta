@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Dino_se\xF1ora-attackpte_0": -375675009623608877
+      "Dino_se\xF1ora-attackpte_1": 7098164628312568628
+      "Dino_se\xF1ora-attackpte_2": -470537702657578668
+      "Dino_se\xF1ora-attackpte_3": -2644192341503486866
+      "Dino_se\xF1ora-attackpte_4": -1844108770458748931
+      "Dino_se\xF1ora-attackpte_5": 1090328638243247643
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

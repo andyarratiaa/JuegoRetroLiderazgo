@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dino_Hippie-attack_64x64_0: 3980816947804417363
+      Dino_Hippie-attack_64x64_1: -469607217515420443
+      Dino_Hippie-attack_64x64_2: 8202688088209127778
+      Dino_Hippie-attack_64x64_3: -4470987957554535521
+      Dino_Hippie-attack_64x64_4: -5851330067875500396
+      Dino_Hippie-attack_64x64_5: -5028490901178266812
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

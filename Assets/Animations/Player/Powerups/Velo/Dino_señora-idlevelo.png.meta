@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Dino_se\xF1ora-idlevelo_0": 5411300230307305764
+      "Dino_se\xF1ora-idlevelo_1": -4304353682501789546
+      "Dino_se\xF1ora-idlevelo_2": 1798579459719151031
+      "Dino_se\xF1ora-idlevelo_3": -1462330887436927413
+      "Dino_se\xF1ora-idlevelo_4": 4854997344449288180
+      "Dino_se\xF1ora-idlevelo_5": 6069431782006198257
+      "Dino_se\xF1ora-idlevelo_6": -5767692278572007457
+      "Dino_se\xF1ora-idlevelo_7": 1764039508311087457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

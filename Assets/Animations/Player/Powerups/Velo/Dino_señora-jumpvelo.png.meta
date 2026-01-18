@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Dino_se\xF1ora-jumpvelo_0": 7066355982049407668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

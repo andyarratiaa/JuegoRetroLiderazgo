@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Dino_se\xF1ora-jumptrice_0": -2689776220419239457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

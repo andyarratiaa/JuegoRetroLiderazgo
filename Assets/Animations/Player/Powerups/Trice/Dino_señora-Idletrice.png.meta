@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Dino_se\xF1ora-Idletrice_0": -3112917610919094759
+      "Dino_se\xF1ora-Idletrice_1": 5636750647333515685
+      "Dino_se\xF1ora-Idletrice_2": 1013164791291984942
+      "Dino_se\xF1ora-Idletrice_3": 683170138546866177
+      "Dino_se\xF1ora-Idletrice_4": -1448177063764281524
+      "Dino_se\xF1ora-Idletrice_5": 1623729777324557720
+      "Dino_se\xF1ora-Idletrice_6": 4756069175874894132
+      "Dino_se\xF1ora-Idletrice_7": 8881073084777842489
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
