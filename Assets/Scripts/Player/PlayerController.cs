@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BoxCollider2D attackCollider;
     [SerializeField] BoxCollider2D attackColliderCrouch;
 
+    Animator anim;
+
 
 
 
@@ -24,25 +26,53 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
     {
         if (GetComponent<PlayerVariablesManager>().isPlayerDead)
         {
+            anim.SetBool("isJumping", true);
             return;
+        } 
+
+        if(isCroached)
+        {
+            anim.SetBool("isCrouch", true);
+        }
+        else
+        {
+            anim.SetBool("isCrouch", false);
+        }
+
+        if(!isGrounded)
+        {
+            anim.SetBool("isJumping", true);
+        } else
+        {
+            anim.SetBool("isJumping", false);
+        }
+
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isMoving", true);
+        } else
+        {
+            anim.SetBool("isMoving", false);
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isCroached)
         {
             //Activar animacion ataque standing (cambiar corutina a animation event)
             StartCoroutine(AttackStanding());
+            anim.SetTrigger("Attack");
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0) && isCroached)
         {
             //Activar animacion ataque crouch (cambiar corutina a animation event)
             StartCoroutine(AttackCrouching());
+            anim.SetTrigger("Attack");
         }
 
 
@@ -97,20 +127,20 @@ public class PlayerController : MonoBehaviour
         {
             isCroached = true;
             CapsuleCollisionStand.enabled = false;
-            CapsuleStand.SetActive(false);
+            //CapsuleStand.SetActive(false);
 
             CapsuleCollisionCrouch.enabled = true;
-            CapsuleCrouch.SetActive(true);
+            //CapsuleCrouch.SetActive(true);
         }
 
         else
         {
             isCroached = false;
             CapsuleCollisionCrouch.enabled = false;
-            CapsuleCrouch.SetActive(false);
+            //CapsuleCrouch.SetActive(false);
 
             CapsuleCollisionStand.enabled = true;
-            CapsuleStand.SetActive(true);
+            //CapsuleStand.SetActive(true);
         }
     }
 
