@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerVariablesManager : MonoBehaviour
 {
-    [SerializeField] int playerHealh;
+    [SerializeField] public int playerHealh;
 
     [SerializeField] int coins;
     public bool isPlayerDead = false;
