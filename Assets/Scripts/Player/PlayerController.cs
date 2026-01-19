@@ -4,7 +4,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float PlayerSpeed;
+    float startingPlayerSpeed;
+    [SerializeField] float veloSpeed; 
     [SerializeField] float JumpForce;
+    int extraJumps = 1;
     [SerializeField] Rigidbody2D PlayerRigidbody;
     [SerializeField] CapsuleCollider2D CapsuleCollisionStand;
     [SerializeField] CapsuleCollider2D CapsuleCollisionCrouch;
@@ -16,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     Animator anim;
 
+    PlayerVariablesManager playerVariablesManager;
 
 
 
@@ -26,11 +30,20 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerVariablesManager = GetComponent<PlayerVariablesManager>();
         anim = GetComponentInChildren<Animator>();
+        startingPlayerSpeed = PlayerSpeed;
     }
 
     private void Update()
     {
+        if(playerVariablesManager.veloPowerup)
+        {
+            PlayerSpeed = veloSpeed;
+        } else
+        {
+            PlayerSpeed = startingPlayerSpeed;
+        }
         if (GetComponent<PlayerVariablesManager>().isPlayerDead)
         {
             anim.SetBool("isJumping", true);
@@ -51,6 +64,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isJumping", true);
         } else
         {
+            extraJumps = 1;
             anim.SetBool("isJumping", false);
         }
 
@@ -73,6 +87,34 @@ public class PlayerController : MonoBehaviour
             //Activar animacion ataque crouch (cambiar corutina a animation event)
             StartCoroutine(AttackCrouching());
             anim.SetTrigger("Attack");
+        }
+
+        if (!isCroached)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && !isGrounded)
+            {
+                if (playerVariablesManager.pteroPowerup)
+                {
+                    if (extraJumps > 0)
+                    {
+                        extraJumps--;
+                        PlayerRigidbody.linearVelocity = Vector3.zero;
+                        PlayerRigidbody.AddForce(transform.up * JumpForce);
+                    }
+                }
+                //else if (Input.GetKey(KeyCode.Space) && !isGrounded)
+                //{
+                //    PlayerRigidbody.gravityScale = 0.5f;
+                //}
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                extraJumps = 1;
+                isGrounded = false;
+                PlayerRigidbody.AddForce(transform.up * JumpForce);
+
+            }
         }
 
 
@@ -101,11 +143,16 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             }
 
-            if (Input.GetKey(KeyCode.Space) && isGrounded)
-            {
-                isGrounded = false;
-                PlayerRigidbody.AddForce(transform.up * JumpForce);
-            }
+           
+            
+
+            //if (Input.GetKeyUp(KeyCode.Space)) 
+            //{
+            //    PlayerRigidbody.gravityScale = 1f;
+            //}
+
+
+
         }
 
         else
@@ -148,6 +195,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            extraJumps = 1;
             isGrounded = true;
         }
     }

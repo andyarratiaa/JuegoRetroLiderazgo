@@ -33,22 +33,21 @@ public class PlayerVariablesManager : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        if (hasPowerup)
-        {
+        
             if (veloPowerup)
             {
-                veloPowerup = false;
-                anim.SetBool("veloPowerup", false);
+                hasPowerup = false;
+                LoseVeloPowerup();
             } else if (pteroPowerup)
             {
-                pteroPowerup = false;
-                anim.SetBool("pteroPowerup", false);
+                hasPowerup = false;
+                LosePteraPowerup();
             } else if (tricePowerup)
             {
-                tricePowerup = false;
-                anim.SetBool("tricePowerup", false);
+                hasPowerup = false;
+                LoseTricePowerup();
             }
-        }
+        
         playerHealth -= damageTaken;
         OnPlayerDamaged?.Invoke();
         Debug.Log("Player health:" + playerHealth);
@@ -61,5 +60,58 @@ public class PlayerVariablesManager : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
             //morir
         }
+    }
+
+    public void GetPteraPowerup ()
+    {
+        hasPowerup = true;
+        LoseTricePowerup();
+        LoseVeloPowerup();
+        pteroPowerup = true;
+        anim.SetBool("pteroPowerup", true);
+        anim.SetTrigger("ptero");
+    }
+
+    public void GetTricePowerup()
+    {
+        hasPowerup = true;
+        LosePteraPowerup();
+        LoseVeloPowerup();
+        tricePowerup = true;
+        anim.SetBool("tricePowerup", true);
+        anim.SetTrigger("trice");
+    }
+
+    public void GetVeloPowerup()
+    {
+        hasPowerup = true;
+        LoseTricePowerup();
+        LosePteraPowerup();
+        veloPowerup = true;
+        anim.SetBool("veloPowerup", true);
+        anim.SetTrigger("velo");
+    }
+
+    public void LosePteraPowerup()
+    {
+        hasPowerup = false;
+        pteroPowerup = false;
+        anim.SetBool("pteroPowerup", false);
+    }
+
+    public void LoseTricePowerup()
+    {
+        hasPowerup = false;
+        tricePowerup = false;
+        anim.SetBool("tricePowerup", false);
+        
+    }
+
+    public void LoseVeloPowerup()
+    {
+        hasPowerup = false;
+        veloPowerup = false;
+        anim.SetBool("veloPowerup", false);
+        
     }
 }
