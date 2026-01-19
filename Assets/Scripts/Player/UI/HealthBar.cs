@@ -8,6 +8,15 @@ public class HealthBar : MonoBehaviour
     public PlayerVariablesManager player;
     List<HealthHeart> hearts = new List<HealthHeart>();
 
+    private void OnEnable()
+    {
+        PlayerVariablesManager.OnPlayerDamaged += DrawHearts;
+    }
+
+    private void OnDisable()
+    {
+        PlayerVariablesManager.OnPlayerDamaged -= DrawHearts;
+    }
     private void Awake()
     {
        player = FindAnyObjectByType<PlayerVariablesManager>();
@@ -43,9 +52,9 @@ public class HealthBar : MonoBehaviour
             CreateEmptyHeart();
         }
 
-        for (int i = 0; i < hearts.Count;i++)
+        for (int i = 0; i < player.playerHealth;i++)
         {
-            //hearts[i].SetHeartImage((HeartStatus));
+            hearts[i].SetHeartImage((HeartStatus)1);
         }
     }
 

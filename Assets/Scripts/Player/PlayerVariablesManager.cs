@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class PlayerVariablesManager : MonoBehaviour
 
     [SerializeField] int coins;
     public bool isPlayerDead = false;
+    public static event Action OnPlayerDamaged;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class PlayerVariablesManager : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         playerHealth -= damageTaken;
+        OnPlayerDamaged?.Invoke();
         Debug.Log("Player health:" + playerHealth);
         if (playerHealth <= 0) 
         {

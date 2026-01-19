@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ca64f2878272a4494641bd8aafc920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 3
+  enemyHealth: 1
   enemySpeed: 3.5
   enemyDamage: 1
   DieClip: {fileID: 8300000, guid: 80dcfcded67688d47b78f76b03d533aa, type: 3}
