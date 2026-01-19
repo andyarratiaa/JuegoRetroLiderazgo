@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class PlayerVariablesManager : MonoBehaviour
 {
-    [SerializeField] public int playerHealh;
+    [SerializeField] public int playerHealth = 4;
+    [SerializeField] public int playerMaxHealth = 4;
 
     [SerializeField] int coins;
     public bool isPlayerDead = false;
 
     void Start()
     {
-        
+        playerHealth = playerMaxHealth;
     }
 
     // Update is called once per frame
@@ -19,15 +20,15 @@ public class PlayerVariablesManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K))
         {
             TakeDamage(1);
-            Debug.Log(playerHealh);
+            Debug.Log(playerHealth);
         }
     }
 
     public void TakeDamage(int damageTaken)
     {
-        playerHealh -= damageTaken;
-        Debug.Log("Player health:" + playerHealh);
-        if (playerHealh <= 0) 
+        playerHealth -= damageTaken;
+        Debug.Log("Player health:" + playerHealth);
+        if (playerHealth <= 0) 
         {
             
             isPlayerDead = true;

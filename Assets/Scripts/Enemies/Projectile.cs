@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] GameObject smallEnemy;
     [SerializeField] Sprite brokenEgg;
     SpriteRenderer spriteRenderer;
+    CapsuleCollider2D capsuleCollider;
 
     bool fade = false;
     
@@ -19,6 +20,7 @@ public class Projectile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -47,6 +49,7 @@ public class Projectile : MonoBehaviour
             {
                 Instantiate(smallEnemy, new Vector3(transform.position.x, transform.position.y +0.65f, transform.position.z), Quaternion.identity);
             }
+            capsuleCollider.enabled = false;
             rb.linearVelocity = new Vector2 (0f, 0f);
             fade = true;
             StartCoroutine(HitGround());

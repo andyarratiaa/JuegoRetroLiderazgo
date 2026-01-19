@@ -346,7 +346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e1d72042af60540bc384d5c824f710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealh: 5
+  playerHealth: 5
+  playerMaxHealth: 5
   coins: 0
   isPlayerDead: 0
 --- !u!50 &7518013492440988350
@@ -671,7 +672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAudio: {fileID: 7957693349956701935}
-  SoundScripts: []
+  SoundScripts:
+  - {fileID: 11400000, guid: dcc63c001c60c02409eed911255d083d, type: 2}
 --- !u!1 &6783981473056046358
 GameObject:
   m_ObjectHideFlags: 0

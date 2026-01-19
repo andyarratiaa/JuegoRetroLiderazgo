@@ -9,6 +9,7 @@ public class HealthManager : MonoBehaviour
     private PlayerVariablesManager health;
 
     public Image[] hearts;
+    //Image heartImage;
     public float currHealth;
 
     public Sprite fullHeart;
@@ -18,8 +19,9 @@ public class HealthManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //heartImage = GetComponent<Image>();
         health = GetComponent<PlayerVariablesManager>();
-        currHealth = health.playerHealh; ;
+        currHealth = health.playerHealth; ;
 
     }
 
@@ -30,9 +32,13 @@ public class HealthManager : MonoBehaviour
         {
             img.sprite = emptyHeart;
         }
-        for (int i = 0; i < health.playerHealh; i++)
+        for (int i = 0; i < health.playerHealth; i++)
         {
             hearts[i].sprite = fullHeart;
         }
     }
+
+
 }
+
+
