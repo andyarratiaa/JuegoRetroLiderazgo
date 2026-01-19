@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CapsuleCollider2D CapsuleCollisionStand;
     [SerializeField] CapsuleCollider2D CapsuleCollisionCrouch;
     [SerializeField] GameObject CapsuleStand;
-    [SerializeField] GameObject CapsuleCrouch;
+    [SerializeField] GameObject TriceAttack;
 
     [SerializeField] BoxCollider2D attackCollider;
     [SerializeField] BoxCollider2D attackColliderCrouch;
@@ -79,14 +79,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isCroached)
         {
             //Activar animacion ataque standing (cambiar corutina a animation event)
-            StartCoroutine(AttackStanding());
+            //StartCoroutine(AttackStanding());
             anim.SetTrigger("Attack");
+            if (playerVariablesManager.tricePowerup)
+            {
+                TriceAttack.SetActive(true);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0) && isCroached)
         {
             //Activar animacion ataque crouch (cambiar corutina a animation event)
-            StartCoroutine(AttackCrouching());
+            //StartCoroutine(AttackCrouching());
             anim.SetTrigger("Attack");
+            if(playerVariablesManager.tricePowerup)
+            {
+                TriceAttack.SetActive(true);
+            }
         }
 
         if (!isCroached)

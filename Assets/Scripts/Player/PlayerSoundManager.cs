@@ -7,6 +7,9 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] List<SoundScriptable> SoundScripts;
     public static PlayerSoundManager instance;
 
+    [SerializeField] BoxCollider2D attackCollider;
+    [SerializeField] BoxCollider2D attackColliderCrouch;
+
     private void Awake()
     {
         if (instance == null)
@@ -44,5 +47,29 @@ public class PlayerSoundManager : MonoBehaviour
     public void PlaySoundAttack()
     {
         PlayPlayerSound(Type.Attack);
+    }
+
+
+
+
+    //COSAS DE ATAQUE PERDON POR DEJAR EL CÓDIGO FEO
+    void ActivateAttackColliderStanding()
+    {
+        attackCollider.enabled = true;
+    }
+
+    void DeactivateAttackColliderStanding()
+    {
+        attackCollider.enabled = false;
+    }
+
+    void ActivateAttackColliderCrouch()
+    {
+        attackColliderCrouch.enabled = true;
+    }
+
+    void DeactivateAttackColliderCrouch()
+    {
+        attackColliderCrouch.enabled = false;
     }
 }
