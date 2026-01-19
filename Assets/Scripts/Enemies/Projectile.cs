@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float projectileSpeed;
     [SerializeField] int projectileDamage;
     [SerializeField] float projectileSpread;
+    [SerializeField] SoundScriptable Clips;
     private GameObject player;
     [SerializeField] GameObject smallEnemy;
     [SerializeField] Sprite brokenEgg;
@@ -62,6 +63,7 @@ public class Projectile : MonoBehaviour
     IEnumerator HitGround()
     {
         spriteRenderer.sprite = brokenEgg;
+        SFXManager.instance.PlaySoundFX(transform, Clips.SelectClip(), Clips.Pitch, Clips.Volume);
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }

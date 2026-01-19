@@ -142,6 +142,7 @@ MonoBehaviour:
   projectileSpeed: 4
   projectileDamage: 1
   projectileSpread: 2
+  Clips: {fileID: 11400000, guid: 41fecbd3afe9dd04b8db075dce91da7b, type: 2}
   smallEnemy: {fileID: 4359517316554592845, guid: 78a66236b4ce6984f9197bce82c401c9, type: 3}
   brokenEgg: {fileID: 519550167376354274, guid: c1fe99d8d971f3143a2998da4c9fa253, type: 3}
 --- !u!50 &-3749907205461104780

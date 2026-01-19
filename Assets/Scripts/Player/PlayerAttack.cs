@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit Registered");
-            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+            other.gameObject.GetComponent<EnemyBase>().TakeDamage(attackDamage);
         }
     }
 }

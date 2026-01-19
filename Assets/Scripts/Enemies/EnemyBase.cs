@@ -5,6 +5,7 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] protected int enemyHealth;
     [SerializeField] protected float enemySpeed;
     [SerializeField] protected int enemyDamage;
+    [SerializeField] protected AudioClip DieClip;
 
     //[SerializeField] protected PlayerVariablesManager player;
     //[SerializeField] protected GameObject player1;
@@ -33,6 +34,8 @@ public abstract class EnemyBase : MonoBehaviour
 
     void Die()
     {
+        Debug.Log("Llega");
+        SFXManager.instance.PlaySoundFX(transform, DieClip, 1, 1);
         Destroy(gameObject);
     }
 
