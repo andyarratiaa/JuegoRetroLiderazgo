@@ -11,8 +11,13 @@ public class PlayerVariablesManager : MonoBehaviour
     public bool isPlayerDead = false;
     public static event Action OnPlayerDamaged;
 
+    public bool hasPowerup;
+    public bool tricePowerup, veloPowerup, pteroPowerup;
+    Animator anim;
+
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         playerHealth = playerMaxHealth;
     }
 
@@ -28,6 +33,22 @@ public class PlayerVariablesManager : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
+        if (hasPowerup)
+        {
+            if (veloPowerup)
+            {
+                veloPowerup = false;
+                anim.SetBool("veloPowerup", false);
+            } else if (pteroPowerup)
+            {
+                pteroPowerup = false;
+                anim.SetBool("pteroPowerup", false);
+            } else if (tricePowerup)
+            {
+                tricePowerup = false;
+                anim.SetBool("tricePowerup", false);
+            }
+        }
         playerHealth -= damageTaken;
         OnPlayerDamaged?.Invoke();
         Debug.Log("Player health:" + playerHealth);
