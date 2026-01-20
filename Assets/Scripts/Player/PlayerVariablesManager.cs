@@ -32,10 +32,9 @@ public class PlayerVariablesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        if(Input.GetKeyDown(KeyCode.O))
         {
-            TakeDamage(1);
-            Debug.Log(playerHealth);
+            SceneManager.LoadScene(0);
         }
 
         if(isPlayerDead)
