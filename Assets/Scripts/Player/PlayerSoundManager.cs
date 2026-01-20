@@ -10,8 +10,11 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] BoxCollider2D attackCollider;
     [SerializeField] BoxCollider2D attackColliderCrouch;
 
+    [SerializeField] GameObject triceAttack;
+
     private void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
@@ -103,5 +106,15 @@ public class PlayerSoundManager : MonoBehaviour
     void DeactivateAttackColliderCrouch()
     {
         attackColliderCrouch.enabled = false;
+    }
+
+    void ActivateTriceAttack()
+    {
+        triceAttack.SetActive(true);
+    }
+
+    void DeactivateTriceAttack()
+    {
+        triceAttack.SetActive(false);
     }
 }

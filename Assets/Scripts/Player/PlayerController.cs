@@ -83,20 +83,20 @@ public class PlayerController : MonoBehaviour
             //Activar animacion ataque standing (cambiar corutina a animation event)
             //StartCoroutine(AttackStanding());
             anim.SetTrigger("Attack");
-            if (playerVariablesManager.tricePowerup)
-            {
-                TriceAttack.SetActive(true);
-            }
+            //if (playerVariablesManager.tricePowerup)
+            //{
+            //    TriceAttack.SetActive(true);
+            //}
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0) && isCroached)
         {
             //Activar animacion ataque crouch (cambiar corutina a animation event)
             //StartCoroutine(AttackCrouching());
             anim.SetTrigger("Attack");
-            if(playerVariablesManager.tricePowerup)
-            {
-                TriceAttack.SetActive(true);
-            }
+            //if(playerVariablesManager.tricePowerup)
+            //{
+            //    TriceAttack.SetActive(true);
+            //}
         }
 
         if (!isCroached)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,9 +17,14 @@ public class PlayerVariablesManager : MonoBehaviour
     public bool hasPowerup;
     public bool tricePowerup, veloPowerup, pteroPowerup;
     Animator anim;
+    [SerializeField] SpriteRenderer spritePlayer;
+    [SerializeField] Color dmgColor;
+    Color initialColor;
+    public GameObject deathScreenUI;
 
     void Start()
     {
+        initialColor = spritePlayer.color;
         anim = GetComponentInChildren<Animator>();
         playerHealth = playerMaxHealth;
     }
@@ -34,16 +40,13 @@ public class PlayerVariablesManager : MonoBehaviour
 
         if(isPlayerDead)
         {
-            DeathTime += Time.deltaTime;
-            if(DeathTime > 2 )
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            deathScreenUI.SetActive(true);
         }
     }
 
     public void TakeDamage(int damageTaken)
     {
+        StartCoroutine(DamageVFX());
         PlayerSoundManager.instance.PlaySoundHurt();
         if (veloPowerup)
         {
@@ -132,5 +135,13 @@ public class PlayerVariablesManager : MonoBehaviour
         veloPowerup = false;
         anim.SetBool("veloPowerup", false);
         
+    }
+
+    IEnumerator DamageVFX()
+    {
+        spritePlayer.color = dmgColor;
+        //Dmg effect time
+        yield return new WaitForSeconds(0.25f);
+        spritePlayer.color = initialColor;
     }
 }

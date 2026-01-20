@@ -53,6 +53,7 @@ public class Projectile : MonoBehaviour
             rb.linearVelocity = new Vector2 (0f, 0f);
             fade = true;
             StartCoroutine(HitGround());
+            
         }
 
         if (collision.CompareTag("Player"))
@@ -60,6 +61,11 @@ public class Projectile : MonoBehaviour
             player.GetComponent<PlayerVariablesManager>().TakeDamage(projectileDamage);
             Debug.Log("Player hit");
             Destroy(gameObject);
+        }
+
+        if(collision.CompareTag("Default"))
+        {
+            StartCoroutine(HitGround());
         }
     }
 

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fbbede6b67398438b0babfa1740a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 1
+  attackDamage: 2
 --- !u!61 &3839046926389733935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -448,6 +448,9 @@ MonoBehaviour:
   tricePowerup: 0
   veloPowerup: 0
   pteroPowerup: 0
+  spritePlayer: {fileID: 6039512359359387559}
+  dmgColor: {r: 1, g: 0.4481132, b: 0.4481132, a: 1}
+  deathScreenUI: {fileID: 0}
 --- !u!50 &7518013492440988350
 Rigidbody2D:
   serializedVersion: 5
@@ -546,8 +549,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.019840956, y: -0.41665113}
-  m_Size: {x: 0.83067656, y: 1.0925891}
+  m_Offset: {x: 0.019840956, y: -0.2955053}
+  m_Size: {x: 0.83067656, y: 1.3348808}
   m_Direction: 0
 --- !u!82 &7957693349956701935
 AudioSource:
@@ -780,6 +783,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca24450ec1b9c984e9cc1d9a9a503f7e, type: 2}
   attackCollider: {fileID: 4546020703324122274}
   attackColliderCrouch: {fileID: 6654974628189712507}
+  triceAttack: {fileID: 9136924115798020259}
 --- !u!1 &6783981473056046358
 GameObject:
   m_ObjectHideFlags: 0
