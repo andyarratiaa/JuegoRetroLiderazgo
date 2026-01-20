@@ -49,12 +49,43 @@ public class PlayerSoundManager : MonoBehaviour
         PlayPlayerSound(Type.Attack);
     }
 
+    public void PlaySoundHurt()
+    {
+        PlayPlayerSound(Type.Hurt);
+    }
+
+    public void PlaySoundPowerUp()
+    {
+        PlayPlayerSound(Type.PowerUp);
+    }
+
+    public void PlaySoundPowerDown()
+    {
+        PlayPlayerSound(Type.PowerDown);
+    }
+
+    public void PlaySoundDeath()
+    {
+        PlayPlayerSound(Type.Death);
+    }
+
+    public void PlaySoundSteps()
+    {
+        PlayPlayerSound(Type.Steps);
+    }
+
+    public void PlaySoundJump()
+    {
+        PlayPlayerSound(Type.Jump);
+    }
+
 
 
 
     //COSAS DE ATAQUE PERDON POR DEJAR EL CÓDIGO FEO
     void ActivateAttackColliderStanding()
     {
+        PlayerSoundManager.instance.PlaySoundAttack();
         attackCollider.enabled = true;
     }
 
@@ -65,6 +96,7 @@ public class PlayerSoundManager : MonoBehaviour
 
     void ActivateAttackColliderCrouch()
     {
+        PlayerSoundManager.instance.PlaySoundAttack();
         attackColliderCrouch.enabled = true;
     }
 

@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
         playerVariablesManager = GetComponent<PlayerVariablesManager>();
         anim = GetComponentInChildren<Animator>();
         startingPlayerSpeed = PlayerSpeed;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -210,12 +212,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnDead()
     {
+        PlayerSoundManager.instance.PlaySoundDeath();
         CapsuleCollisionStand.enabled = false;
         CapsuleCollisionCrouch.enabled = false;
     }
 
     void ActivateAttackColliderStanding()
     {
+        PlayerSoundManager.instance.PlaySoundAttack();
         attackCollider.enabled = true;
     }
 
@@ -226,6 +230,7 @@ public class PlayerController : MonoBehaviour
 
     void ActivateAttackColliderCrouch()
     {
+        PlayerSoundManager.instance.PlaySoundAttack();
         attackColliderCrouch.enabled = true;
     }
 

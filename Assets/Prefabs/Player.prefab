@@ -772,6 +772,12 @@ MonoBehaviour:
   PlayerAudio: {fileID: 7957693349956701935}
   SoundScripts:
   - {fileID: 11400000, guid: dcc63c001c60c02409eed911255d083d, type: 2}
+  - {fileID: 11400000, guid: 7a8f469fc19a8d846969094f5146b823, type: 2}
+  - {fileID: 11400000, guid: aee711cad249f054ab719ff3d1758aa7, type: 2}
+  - {fileID: 11400000, guid: 7beb65340f97c7a48a8f1ecaae577017, type: 2}
+  - {fileID: 11400000, guid: 149b83c67c298bd47a454afe423972ea, type: 2}
+  - {fileID: 11400000, guid: cfa8c2e4f598e3e4bbed71564a38a39c, type: 2}
+  - {fileID: 11400000, guid: ca24450ec1b9c984e9cc1d9a9a503f7e, type: 2}
   attackCollider: {fileID: 4546020703324122274}
   attackColliderCrouch: {fileID: 6654974628189712507}
 --- !u!1 &6783981473056046358

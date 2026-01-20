@@ -25,4 +25,8 @@ public enum Type
     Attack,
     Hurt,
     Death,
+    PowerUp,
+    PowerDown,
+    Steps,
+    Jump
 }
