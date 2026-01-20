@@ -1,5 +1,8 @@
+using Mono.Cecil;
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,7 +23,11 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     PlayerVariablesManager playerVariablesManager;
+    float moveDirection;
 
+    public InputActionReference jump;
+    public InputActionReference attack;
+    public InputActionReference crouch;
 
 
 
@@ -39,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        moveDirection = Input.GetAxis("Horizontal");
+        Debug.Log(moveDirection);
         if(playerVariablesManager.veloPowerup)
         {
             PlayerSpeed = veloSpeed;
@@ -70,7 +79,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isJumping", false);
         }
 
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if(moveDirection > 0.001 || moveDirection < -0.001 ||Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             anim.SetBool("isMoving", true);
         } else
@@ -78,7 +87,14 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isMoving", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !isCroached)
+        //if(!isCroached)
+        //{
+        //    attack.action.started += Attack;
+        //} else if(isCroached)
+        //{
+        //    attack.action.started += Attack;
+        //}
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isCroached || Input.GetButtonDown("Fire1")  && !isCroached)
         {
             //Activar animacion ataque standing (cambiar corutina a animation event)
             //StartCoroutine(AttackStanding());
@@ -88,7 +104,7 @@ public class PlayerController : MonoBehaviour
             //    TriceAttack.SetActive(true);
             //}
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && isCroached)
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && isCroached || Input.GetButtonDown("Fire1") && isCroached)
         {
             //Activar animacion ataque crouch (cambiar corutina a animation event)
             //StartCoroutine(AttackCrouching());
@@ -101,7 +117,14 @@ public class PlayerController : MonoBehaviour
 
         if (!isCroached)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !isGrounded)
+            //if(!isGrounded)
+            //{
+            //    jump.action.performed += Jump;
+            //} else if (isGrounded)
+            //{
+            //    jump.action.performed += JumpGround;
+            //}
+            if (Input.GetKeyDown(KeyCode.Space) && !isGrounded || Input.GetButtonDown("Jump") && !isGrounded)
             {
                 if (playerVariablesManager.pteroPowerup)
                 {
@@ -118,7 +141,7 @@ public class PlayerController : MonoBehaviour
                 //}
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded || Input.GetButtonDown("Jump") && isGrounded)
             {
                 extraJumps = 1;
                 isGrounded = false;
@@ -130,9 +153,55 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void Attack(InputAction.CallbackContext obj)
+    {
+        anim.SetTrigger("Attack");
+        attack.action.started -= Attack;
+
+    }
+
+    private void Crouch(InputAction.CallbackContext obj)
+    {
+
+        isCroached = true;
+        CapsuleCollisionStand.enabled = false;
+        //CapsuleStand.SetActive(false);
+
+        CapsuleCollisionCrouch.enabled = true;
+        //CapsuleCrouch.SetActive(true);
+
+    }
+
+    private void Jump(InputAction.CallbackContext obj)
+    {
+
+        if (!obj.performed)
+            return;
+
+        if (!playerVariablesManager.pteroPowerup)
+            return;
+
+        if (extraJumps <= 0)
+            return;
+
+        extraJumps--;
+                PlayerRigidbody.linearVelocity = Vector3.zero;
+                PlayerRigidbody.AddForce(transform.up * JumpForce);
+          
+    }
+
+    private void JumpGround(InputAction.CallbackContext obj)
+    {
+        //extraJumps = 1;
+        isGrounded = false;
+        PlayerRigidbody.AddForce(transform.up * JumpForce);
+        
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        //float moveDirection = Input.GetAxis("Horizontal");
         //isGrounded = Physics2D.CircleCast(transform.position, 0.5f, Vector2.down, 0.05f, GoundObjets);
         if (GetComponent<PlayerVariablesManager>().isPlayerDead)
         {
@@ -141,13 +210,13 @@ public class PlayerController : MonoBehaviour
 
         if (!isCroached)
         {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || moveDirection < -0.01)
             {
                 transform.position = new Vector3(transform.position.x - PlayerSpeed, transform.position.y, transform.position.z);
                 transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
             }
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) || moveDirection > 0.01)
             {
                 transform.position = new Vector3(transform.position.x + PlayerSpeed, transform.position.y, transform.position.z);
                 transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
@@ -167,20 +236,20 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || moveDirection < -0.001)
             {
                 transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
             }
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) || moveDirection > 0.001)
             {
                 transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
             }
         }
 
 
-
-        if (Input.GetKey(KeyCode.LeftControl))
+        //crouch.action.performed += Crouch;
+        if (Input.GetKey(KeyCode.LeftControl) || Input.GetButton("Fire2"))
         {
             isCroached = true;
             CapsuleCollisionStand.enabled = false;
