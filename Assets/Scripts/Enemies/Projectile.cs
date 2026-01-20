@@ -63,7 +63,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.CompareTag("Default"))
+        if(collision.CompareTag("Trap"))
         {
             StartCoroutine(HitGround());
         }

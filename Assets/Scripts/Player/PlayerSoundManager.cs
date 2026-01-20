@@ -88,7 +88,7 @@ public class PlayerSoundManager : MonoBehaviour
     //COSAS DE ATAQUE PERDON POR DEJAR EL CÓDIGO FEO
     void ActivateAttackColliderStanding()
     {
-        PlayerSoundManager.instance.PlaySoundAttack();
+        //PlayerSoundManager.instance.PlaySoundAttack();
         attackCollider.enabled = true;
     }
 
@@ -99,7 +99,7 @@ public class PlayerSoundManager : MonoBehaviour
 
     void ActivateAttackColliderCrouch()
     {
-        PlayerSoundManager.instance.PlaySoundAttack();
+        //PlayerSoundManager.instance.PlaySoundAttack();
         attackColliderCrouch.enabled = true;
     }
 

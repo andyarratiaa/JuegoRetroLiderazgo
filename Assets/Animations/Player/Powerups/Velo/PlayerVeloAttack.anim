@@ -92,6 +92,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.057142857
+    functionName: PlaySoundAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.08571429
     functionName: DeactivateAttackColliderStanding
     data: 
